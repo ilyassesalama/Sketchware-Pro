@@ -20,14 +20,14 @@ def get_collaborators():
   url = f"{GITHUB_API_BASE}/repos/{GITHUB_REPO}/collaborators"
   response = requests.get(url, headers=HEADERS)
   if response.status_code != 200:
-    return []
+    return None
   return response.json()
 
 def get_contributors():
   url = f"{GITHUB_API_BASE}/repos/{GITHUB_REPO}/contributors"
   response = requests.get(url, headers=HEADERS)
   if response.status_code != 200:
-    return []
+    return None
   return response.json()
 
 def has_recent_activity(username):
@@ -77,7 +77,8 @@ def update_team_data(collaborators, contributors):
 def main():
   collaborators = get_collaborators()
   contributors = get_contributors()
-  update_team_data(collaborators, contributors)
+  if collaborators is not None and contributors is not None:
+    update_team_data(collaborators, contributors)
 
 if __name__ == "__main__":
   main()
