@@ -7,7 +7,8 @@ import os
 GITHUB_REPO = "Sketchware-Pro/Sketchware-Pro"
 GITHUB_TOKEN = os.getenv("TOKEN_GITHUB")
 GITHUB_API_BASE = "https://api.github.com"
-GITHUB_ABOUT_TEAM_URL = "https://raw.githubusercontent.com/Sketchware-Pro/Sketchware-Pro/refs/heads/host/about_team.json"
+GITHUB_ABOUT_TEAM_FILE = "about_team.json"
+GITHUB_ABOUT_TEAM_URL = f"https://raw.githubusercontent.com/Sketchware-Pro/Sketchware-Pro/refs/heads/host/{GITHUB_ABOUT_TEAM_FILE}"
 
 HEADERS = {
   "Accept": "application/vnd.github+json",
@@ -67,7 +68,7 @@ def update_team_data(collaborators, contributors):
 
     data["team"] = updated_team
 
-    with open("about_team.json", "w") as file:
+    with open(GITHUB_ABOUT_TEAM_FILE, "w") as file:
       json.dump(data, file, indent=2)
 
   except Exception as e:
