@@ -79,8 +79,6 @@ def main():
   contributors = get_contributors()
   if collaborators is not None and contributors is not None:
     update_team_data(collaborators, contributors)
-  else:
-    raise Exception("Failed to fetch collaborators or contributors.")
 
 
 if __name__ == "__main__":
