@@ -9,7 +9,7 @@ logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(
 
 # Constants
 GITHUB_REPO = "Sketchware-Pro/Sketchware-Pro"
-GITHUB_TOKEN = os.getenv("GITHUB_TOKEN")
+GITHUB_TOKEN = os.getenv("TOKEN_GITHUB")
 GITHUB_API_BASE = "https://api.github.com"
 GITHUB_ABOUT_TEAM_URL = "https://raw.githubusercontent.com/Sketchware-Pro/Sketchware-Pro/refs/heads/host/about_team.json"
 
